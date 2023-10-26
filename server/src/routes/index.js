@@ -1,8 +1,10 @@
 const { Router } = require("express");
-const {getDrivers} = require("../controllers/getDrivers");
+const driversRouter= require("../routes/driversRouter");
+const teamRouter= require("../routes/teamRouter");
 
 const router = Router();
 
-router.get("/drivers", getDrivers);
+router.use("/drivers", driversRouter);
+//router.use("/team", teamRouter);
 
 module.exports = router;
