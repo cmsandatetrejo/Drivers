@@ -1,0 +1,45 @@
+.containerForm {
+    border: 5px solid red;   
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: black;
+}
+
+.containerForm label,
+.containerForm input {
+  margin-bottom: 1px;
+  padding-bottom: 1px;
+}
+
+.forenameSurname {
+    border: 5px solid red;  
+    text-align: center; 
+    width: 350px;
+    height: 80px; 
+    background-color: bisque;
+  }
+
+.containerForm p {
+    color: red;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+
+
+.containerInt {
+    border: 5px solid red;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 350px;
+    height: 350px; 
+    background-color: bisque;
+}
+
+.containerForm label,
+.forenameSurname label,
+.containerInt label{
+    color: blue;
+}

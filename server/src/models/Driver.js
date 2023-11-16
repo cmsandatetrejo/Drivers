@@ -1,15 +1,17 @@
 const { DataTypes } = require('sequelize');
+const {v4: uuidv4} = require('uuid');
 // Exportamos una funcion que define el modelo
 // Luego le injectamos la conexion a sequelize.
 module.exports = (sequelize) => {
   // defino el modelo
   sequelize.define('Driver', {
     id: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.UUID,
       primaryKey: true,
-      autoIncrement: true,
-      initialAutoIncrement: 1000,
-      allowNull: false,
+      defaultValue: () => uuidv4(),
+      validate: {
+        isUUID: 4,
+      },      
     },
     forename: {
       type: DataTypes.STRING,
@@ -34,6 +36,15 @@ module.exports = (sequelize) => {
     dob: {
       type: DataTypes.STRING,
       allowNull: false,
+    },
+  }, {
+    hooks: {
+      beforeCreate: (driver) => {
+        if(!driver.forename|| !driver.surname|| !driver.description || !driver.image || !driver.nationality || !driver.dob) {
+          throw new Error('Falta una o mas propiedades requeridas para crear el Driver');
+        }
+      }
     }
-  });
+  }
+  );
 };

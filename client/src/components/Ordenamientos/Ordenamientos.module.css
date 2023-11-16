@@ -1,0 +1,17 @@
+.container {
+    border-color: black;
+    background-color: bisque;
+    display: inline-block;
+    text-align: center;
+    margin: 0 10px;
+   
+}
+
+.container .btn {
+    background-color: green;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 20%;
+  }

@@ -1,33 +1,43 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useState, useEffect } from 'react'
 import './App.css'
+import InitPage from './components/InitPAge/IinitPage';
+import Home from './components/Home/Home';
+import Form from './components/Form/Form';
+import Detail from './components/Detail/Detail';
+import NavBar from './components/NavBar/NavBar';
+import {Routes, Route, useLocation, useNavigate} from 'react-router-dom';
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  const [access, setAccess]= useState(false);  
+  const location=useLocation();
+  const navigate=useNavigate();
+ 
+  const login=(bool)=>{
+    setAccess(bool);
+  }
+ 
+ useEffect(()=>{
+   if(access){
+    navigate("/home");
+  }else{
+    navigate("/");
+  }    
+ },[access]);
+  
+  
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      {
+        location.pathname!=='/'
+        ? <NavBar/>
+        : null
+      }
+      <Routes>
+        <Route path='/' element={<InitPage login={login}/>}/>
+        <Route path='/home' element={<Home/>}/>
+        <Route path='home/form' element={<Form/>}/>
+        <Route path='/detail/:detailId' element={<Detail/>}/>
+      </Routes>
     </>
   )
 }
