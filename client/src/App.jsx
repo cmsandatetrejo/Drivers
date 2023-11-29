@@ -1,3 +1,4 @@
+import styles from "./App.css?inline";
 import { useState, useEffect } from 'react'
 import './App.css'
 import InitPage from './components/InitPAge/IinitPage';
@@ -26,7 +27,7 @@ function App() {
   
   
   return (
-    <>
+    <div className="container">
       {
         location.pathname!=='/'
         ? <NavBar/>
@@ -36,9 +37,9 @@ function App() {
         <Route path='/' element={<InitPage login={login}/>}/>
         <Route path='/home' element={<Home/>}/>
         <Route path='home/form' element={<Form/>}/>
-        <Route path='/detail/:detailId' element={<Detail/>}/>
+        <Route path='/detail/:detailId' element={<Detail/>}/>        
       </Routes>
-    </>
+    </div>
   )
 }
 

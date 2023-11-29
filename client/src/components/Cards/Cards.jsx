@@ -54,7 +54,7 @@ const Cards=()=>{
         </div>
         <div className={styles.container}>
         {
-          driversToShow.length===0 ? (<p style={{color:'red'}}>Esperando...</p>) : (
+          driversToShow.length===0 ? (<p style={{color:'red'}}>no found...</p>) : (
             driversToShow.map(driver=>(
               <Card
                 key={driver.id}

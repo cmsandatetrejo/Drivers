@@ -52,7 +52,7 @@ export const postDriver=(driver)=>{
       const {data}= response;
       
       if(!data) throw Error("No se pudo guardar el Driver");
-
+      console.log(data);
       return dispatch({
         type: POST_DRIVER,
         payload: data,
@@ -92,9 +92,9 @@ export const getByName=(name)=>{
 export const filtroByTeam=(team)=>{
   
   return (dispatch, getState)=> {
-    const { allDrivers} =getState();
+    const { backUpDrivers} =getState();
     
-    const filteredDrivers=allDrivers.filter((driver)=>{
+    const filteredDrivers=backUpDrivers.filter((driver)=>{
       if(driver.teams){
         const teamsArray=driver.teams.split(", ");
         return teamsArray.includes(team);
@@ -139,13 +139,13 @@ export const resetSelectedTeam=()=>{
 
 export const filtroByOrigin=(origin)=>{
   return (dispatch, getState)=>{
-    const {allDrivers} = getState();
+    const {backUpDrivers} = getState();
     let filteredDrivers =[];
-    console.log("origin en actions",origin);
+    
     if(origin==="API"){
-      filteredDrivers=allDrivers.filter((driver)=>!isNaN(driver.id));
+      filteredDrivers=backUpDrivers.filter((driver)=>!isNaN(driver.id));
     } else if(origin === "Base de datos") {
-        filteredDrivers = allDrivers.filter((driver)=> isNaN(driver.id));
+        filteredDrivers = backUpDrivers.filter((driver)=> isNaN(driver.id));
     }
     
     dispatch({

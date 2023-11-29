@@ -45,7 +45,7 @@ driversRouter.get("/:idDriver", async (req,res)=>{
     try {
         const {idDriver}=req.params;
         const driver= await getById(idDriver);
-        console.log("driver",driver);
+        //console.log("driver",driver);
         res.status(200).json(driver);
     } catch (error) {
         res.status(500).json({error: error.message});
@@ -74,8 +74,5 @@ driversRouter.post("/", async (req, res)=>{
                 
     }
 });
-
-
-
 
 module.exports= driversRouter;

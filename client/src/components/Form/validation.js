@@ -8,9 +8,7 @@ const validation=(driverData)=>{
   if(driverData.surname.trim()!=="" && !regex.test(driverData.surname)){
     error.surname="el apellido no debe contener numeros ni simbolos";
   }
-  if(driverData.nationality.trim()!=="" && !regex.test(driverData.nationality)){
-    error.nationality="la nacionalidad no debe contener numeros ni simbolos";
-  }
+  
   if(driverData.dob.trim()!==""){
     const dobDiv=driverData.dob.split("-");
     const dob= new Date(dobDiv[0], dobDiv[1]-1, dobDiv[2]);

@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { getTeams, postDriver } from "../../redux/actions";
 import validation from "./validation";
+import nationalities from "./nationalities";
 
 const Form=()=>{
   
@@ -12,6 +13,7 @@ const Form=()=>{
   
   const [errors,setErrors]=useState({});
   const [selectedTeam,setSelectedTeam]=useState("");
+  const [selectedNationality,setSelectedNationality]=useState("");
   const [driverData, setDriverData]= useState({
     
     forename: "",
@@ -22,9 +24,7 @@ const Form=()=>{
     description: "",
     teams: [],
   });
-
-  console.log("tieneError",Object.keys(errors).length !== 0);
-
+ 
   const handleChange=(event)=>{
     setDriverData({
       ...driverData,
@@ -37,6 +37,14 @@ const Form=()=>{
     });
     setErrors(objError);
     
+  };
+
+  const handleNationality=(event)=>{
+    setSelectedNationality(event.target.value);
+    setDriverData({
+      ...driverData,
+      nationality: event.target.value,
+    });
   };
 
   const handleSelectedChange=(event)=>{
@@ -79,9 +87,16 @@ const Form=()=>{
       
       <div className={styles.containerInt}>
         <label htmlFor="nationality">NATIONALITY</label>
-        <input type="text" name="nationality" value={driverData.nationality} onChange={handleChange}/>
-        {errors.nationality && <p>{errors.nationality}</p>}
-
+          <select name="nationality" value={selectedNationality} onChange={handleNationality}>
+            <option value="">Select Nationality</option>
+              {
+                nationalities.map((nationality,index)=>(
+                  <option key={index} value={nationality}>      {nationality}
+                  </option>
+                ))
+              }
+          </select>
+        
         <label htmlFor="image">IMAGE</label>
         <input type="url" name="image" value={driverData.image} onChange={handleChange}/>
 

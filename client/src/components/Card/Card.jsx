@@ -7,8 +7,6 @@ const Card=({id, image, forename, teams})=>{
     formatTeams=teams.split(',').join(', ');
   }
    
-    
-
   return(
     <div className={styles.container}>
       <Link to={{pathname: `/detail/${id}`}}>

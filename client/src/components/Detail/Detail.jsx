@@ -1,3 +1,4 @@
+import styles from "./Detail.module.css";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
@@ -24,24 +25,25 @@ const Detail = () => {
   }, [detailId]);
 
   return (
-    <div>
+    
+      <div className={styles.container}>
       {loading ? (
         <p style={{ color: "red" }}>esperando</p>
       ) : (
-        <div>
-          <h2>ID: {data.id}</h2>
-          <h2>FORENAME: {data.forename}</h2>
-          <h2>SURNAME: {data.surname}</h2>
-          <h2>NATIONALITY: {data.nationality}</h2>
-          <img src={data.image} alt="imagen de driver"/>
-          <h2>DESCRIPTION: {data.description}</h2>
-          <h2>DATE OF BIRTHDAY: {data.dob}</h2>
-          <h2>ESCUDERIAS: {data.teams}</h2>
-
-        </div>
-        
+        <div className={styles.container2}>
+          <h3>ID: {data.id}</h3>
+          <h3>FORENAME: {data.forename}</h3>
+          <h3>SURNAME: {data.surname}</h3>
+          <h4>NATIONALITY: {data.nationality}</h4>
+          <img src={data.image} alt="imagen de driver" className={styles.image}/>
+          <p>DESCRIPTION: {data.description}</p>
+          <h3>DATE OF BIRTHDAY: {data.dob}</h3>
+          <h3>ESCUDERIAS: {data.teams}</h3>
+        </div>        
       )}
     </div>
+   
+    
   );
 };
 

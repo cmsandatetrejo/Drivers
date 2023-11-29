@@ -7,7 +7,7 @@ import { getByName } from '../../redux/actions';
 const SearchBar=()=>{
   const dispatch=useDispatch();
   const [serchValue, setSearchValue] = useState('Buscar por nombre');
-  console.log(serchValue);
+  //console.log(serchValue);
   
   const handleInputChange=(event)=>{
     setSearchValue(event.target.value);

@@ -21,7 +21,8 @@ const InitPage = ({login}) => {
 
     return (
         <div className={styles.container}>
-          <h1 className={styles.title} >WELCOME</h1>   
+          <h1 className={styles.title} >WELCOME TO</h1>
+          <h1 className={styles.title}>DRIVERS</h1>   
           <button className={styles.btn} onClick={handleOnclick}>ENTRAR</button> 
           <img className={styles.image} src="https://www.grandprix.com.au/uploads/images/_HomePageHeroPreviewImage/FOR_HOMEPAGE_Video_Static.jpg" alt="imagen de vehiculo"/>
         </div>

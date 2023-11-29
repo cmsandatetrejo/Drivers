@@ -35,12 +35,14 @@ const reducer=(state=initialState, {type, payload})=>{
       alert("Driver creado");
       return {
         ...state,
-        allDrivers: [payload, ...state.allDrivers]
+        allDrivers: [payload, ...state.allDrivers],
+        backUpDrivers: [payload, ...state.backUpDrivers]
       }  
     case FILTRO_TEAM:
       return{
         ...state,
         allDrivers: payload,
+        selectedOrigin: "",        
       }
     case RESET_DRIVERS:
       return{
@@ -67,6 +69,7 @@ const reducer=(state=initialState, {type, payload})=>{
       return{
         ...state,
         allDrivers: payload,
+        selectedTeam: "",
       }      
     case SET_SELECTEDORIGIN:
       return{

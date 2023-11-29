@@ -15,26 +15,7 @@ async function getByName(forename){
      }).slice(0, 15);
 
      
-     /*const driverDB=await Driver.findAll({
-        where: {
-            forename: {
-                [Op.iLike]: `%${nameToFind}%`
-            }
-        },
-        include: Team
-     }); 
-
-    const driverData=driverDB.map(driver=>{
-        const plainDriver=driver.get({plain:true});
-        const arrayTeam=plainDriver.Teams.map(team=>
-            team.name);
-        plainDriver.Teams=arrayTeam.join(", ");
-        
-        return plainDriver;    
-    });
     
-    const combinedDrivers= driverData.concat(filteredDrivers).slice(0,15);
-     console.log(combinedDrivers.length);*/
     return filteredDrivers;    
    
 }

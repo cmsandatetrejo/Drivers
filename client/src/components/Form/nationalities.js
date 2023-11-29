@@ -1,0 +1,3 @@
+const nationalities = ["Alemán", "Americano", "Argentino", "Australiano", "Boliviano", "Brasileño", "Británico", "Canadiense", "Chileno", "Chino", "Colombiano", "Coreano", "Costarricense", "Cubano", "Danés", "Dominicano", "Ecuatoriano", "Egipcio", "Español", "Estadounidense", "Etíope", "Filipino", "Francés", "Griego", "Guatemalteco", "Haitiano", "Holandés", "Hondureño", "Indio", "Indonesio", "Italiano", "Japonés", "Malasio", "Marroquí", "Mexicano", "Neozelandés", "Nicaragüense", "Nigeriano", "Noruego", "Panameño", "Paraguayo", "Peruano", "Polaco", "Portugués", "Puertorriqueño", "Ruso", "Salvadoreño", "Singapurense", "Sueco", "Sudafricano", "Suizo", "Tailandés", "Uruguayo", "Venezolano", "Vietnamita"];
+
+export default nationalities;
